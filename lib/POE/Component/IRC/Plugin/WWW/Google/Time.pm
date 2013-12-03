@@ -3,7 +3,7 @@ package POE::Component::IRC::Plugin::WWW::Google::Time;
 use warnings;
 use strict;
 
-our $VERSION = '0.0101';
+our $VERSION = '0.0102';
 
 use base 'POE::Component::IRC::Plugin::BasePoCoWrap';
 use POE qw/Component::WWW::Google::Time/;
@@ -72,6 +72,8 @@ sub _make_poco_call {
 
 1;
 __END__
+
+=encoding utf8
 
 =head1 NAME
 

@@ -14,9 +14,14 @@ my $builder = Module::Build->new(
         'POE'                                       => 0.9999,
         'POE::Component::IRC::Plugin::BasePoCoWrap' => 0.004,
         'POE::Component::WWW::Google::Time'         => 0.0101,
+        'perl' => '5.006',
     },
+    configure_requires => { 'Module::Build' => 0 },
     add_to_cleanup      => [ 'POE-Component-IRC-Plugin-WWW-Google-Time-*' ],
     create_makefile_pl => 'traditional',
 );
 
+if ( $ENV{RELEASE_TESTING} ) {
+    system('pod2text lib/POE/Component/IRC/Plugin/WWW/Google/Time.pm > README');
+}
 $builder->create_build_script();
